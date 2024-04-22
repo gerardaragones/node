@@ -44,6 +44,9 @@ const authController = {
             const isMatch = await bcrypt.compare(password, user.password);
             
             if (isMatch) {
+                console.log('SESSION =====> ', req.session);
+                req.session.currentUser = user;
+                //res.redirect('/userProfile');
                 res.render('main', { user });
             } else {
                 throw new Error('Incorrect password');

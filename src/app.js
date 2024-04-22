@@ -5,6 +5,7 @@ const hbs       = require("hbs");
 const path      = require("path");
 const bodyParser = require('body-parser');
 const connectToMongo = require('../config/database')
+
 // Crear una instancia de Express
 const app = express();
 

@@ -14,8 +14,15 @@
 
 <body>
 
-<h1>Bienvenido {{user.username}} a la página de inicio</h1>
-
+{{#if existingUser}}
+<h2>Welcome, {{ existingUser.username }}!</h2>
+<p>This is your profile page my friend!</p>
+<button>
+<a href="/home">Reload the page</a>
+</button>
+{{else}}
+<p>Still no logged in user, sorry!</p>
+{{/if}}
 </body>
 
 </html>
