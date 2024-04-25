@@ -4,11 +4,11 @@ const authRoutes = require('../src/routes/authRoutes');
 const hbs       = require("hbs");
 const path      = require("path");
 const bodyParser = require('body-parser');
-const connectToMongo = require('../config/database')
+const connectToMongo = require('../config/database');
 
 // Crear una instancia de Express
 const app = express();
-
+require('../config/session.config.js')(app); //no borrar
 connectToMongo();
 app.set("view engine", "hbs");
 //Seteo la carpeta views desde donde se buscaran las plantillas

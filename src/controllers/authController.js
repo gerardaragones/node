@@ -32,6 +32,7 @@ const authController = {
 
     async PostLogin(req, res) { // Método para procesar el formulario de inicio de sesión
         try {
+            console.log('SESSION =====> ', req.session);
             const { username, email, password } = req.body;
             
             // Buscar al usuario por nombre de usuario y email
@@ -44,12 +45,11 @@ const authController = {
             const isMatch = await bcrypt.compare(password, user.password);
             
             if (isMatch) {
-                console.log('SESSION =====> ', req.session);
                 req.session.currentUser = user;
-                //res.redirect('/userProfile');
-                res.render('main', { user });
+                console.log(user);
+                res.render('main', { existingUser: req.session.currentUser });
             } else {
-                throw new Error('Incorrect password');
+                throw new Error('Incorrect password');            
             }
         } catch (err) {
             console.error(err.message);

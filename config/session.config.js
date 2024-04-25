@@ -1,6 +1,7 @@
 // config/session.config.js
 // require session
 const session = require('express-session');
+require('dotenv').config();
 
 // since we are going to USE this middleware in the app.js,
 // let's export it and have it receive a parameter
